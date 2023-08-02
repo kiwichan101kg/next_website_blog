@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "../components/Hero";
 
-const page = () => {
+const Blog = () => {
   return (
     <>
       <Hero title={"Blog"} subTitle={"Recent Posts"} />
@@ -9,4 +9,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Blog;
