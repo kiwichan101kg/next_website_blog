@@ -1,12 +1,12 @@
 import React from "react";
 import Hero from "../components/Hero";
 
-const page = () => {
+const About = () => {
   return (
     <>
-      <Hero />
+      <Hero title={"About"} subTitle={"About development activities"} />
     </>
   );
 };
 
-export default page;
+export default About;

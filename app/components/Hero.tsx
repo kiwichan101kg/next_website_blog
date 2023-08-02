@@ -1,10 +1,15 @@
 import React from "react";
 
-const Hero = () => {
+type HeroProps = {
+  title: string;
+  subTitle: string;
+};
+
+const Hero = ({ title, subTitle }: HeroProps) => {
   return (
     <div>
-      <h1>CUBE</h1>
-      <p>アウトプットしていくサイト</p>
+      <h1>{title}</h1>
+      <p>{subTitle}</p>
     </div>
   );
 };
