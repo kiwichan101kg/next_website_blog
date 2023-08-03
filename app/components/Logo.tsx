@@ -3,7 +3,7 @@ import React from "react";
 import styles from "../styles/logo.module.css";
 
 type LogoProps = {
-  boxOn: boolean;
+  boxOn?: boolean;
 };
 
 const Logo = ({ boxOn = false }: LogoProps) => {

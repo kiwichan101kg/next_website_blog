@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../styles/hero.module.css";
+import styles from "../styles/hero.module.css";
 
 type HeroProps = {
   title: string;
@@ -10,11 +10,13 @@ type HeroProps = {
 const Hero = ({ title, subTitle, imageOn = false }: HeroProps) => {
   return (
     <div>
-      <div className={style.text}>
-        <h1 className={style.title}>{title}</h1>
-        <p className={style.subtitle}>{subTitle}</p>
+      <div className={styles.flexContainer}>
+        <div className={styles.text}>
+          <h1 className={styles.title}>{title}</h1>
+          <p className={styles.subtitle}>{subTitle}</p>
+        </div>
+        {imageOn && <figure>[画像]</figure>}
       </div>
-      {imageOn && <figure>[画像]</figure>}
     </div>
   );
 };
