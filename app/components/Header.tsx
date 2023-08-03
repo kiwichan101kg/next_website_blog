@@ -5,7 +5,7 @@ import Nav from "./Nav";
 const Header = () => {
   return (
     <header>
-      <Logo />
+      <Logo boxOn />
       <Nav />
     </header>
   );
