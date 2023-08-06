@@ -71,6 +71,7 @@ ul {
 }
 
 a {
+  /* 親要素から取得する */
   color: inherit;
   text-decoration: none;
 }

@@ -2,17 +2,21 @@
   composes: sideBySideCenter from "./utils.module.css";
 }
 
+/*余白：タイトルとサブタイトルを囲むdivに設定する*/
 .text {
   padding-top: calc(var(--display) * 0.5);
   padding-bottom: calc(var(--display) * 0.7);
 }
 
+/*フォントのスタイル：タイトル(h1)に設定する*/
 .title {
+  /*グローバルCSSのh1{font-size: var(--heading1)};を上書きしている*/
   font-size: var(--display);
   font-weight: 900;
   letter-spacing: 0.15em;
 }
 
+/*フォントのスタイル：サブタイトル(p)に設定する*/
 .subtitle {
   font-size: var(--small-heading2);
 }

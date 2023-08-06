@@ -1,10 +1,13 @@
 import React from "react";
 import Hero from "../components/Hero";
+import Container from "../components/Container";
 
 const Blog = () => {
   return (
     <>
-      <Hero title={"Blog"} subTitle={"Recent Posts"} />
+      <Container>
+        <Hero title={"Blog"} subTitle={"Recent Posts"} />
+      </Container>
     </>
   );
 };
