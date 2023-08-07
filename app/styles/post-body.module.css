@@ -1,0 +1,26 @@
+/* フクロウセレクタ １つ目以外の兄弟要素に適用 (一番上以外の繰り返し要素の感覚を設定したい時)*/
+/* CSSカスタムプロパティのフォールバック 変数が宣言されていなかった場合に代わりの値が適応できる */
+.stack > * + * {
+  margin-top: var(--stack-space, 1.5rem);
+}
+
+/* h2とh3の上マージン */
+.stack h2,
+.stack h3 {
+  --stack-space: 2rem;
+}
+
+/* h2とh3の直下の子要素の上マージン (h2、h3の下余白の設定)*/
+.stack h2 + *,
+.stack h3 + * {
+  --stack-space: 0.8rem;
+}
+
+.stack p {
+  line-height: 1.8;
+}
+
+.stack ul {
+  padding: revert;
+  list-style: revert;
+}
