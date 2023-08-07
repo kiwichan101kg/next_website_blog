@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "../components/Hero";
 import Container from "../components/Container";
 import PostBody from "../components/PostBody";
+import Contact from "../components/Contact";
 
 const About = () => {
   return (
@@ -25,6 +26,7 @@ const About = () => {
             今までと違うものを作ることで愛着が湧いてきます。そこで興味を持ったことは小さなことでもいいから取り入れて、良いものを作れるようにしています。小さなヒントから新しいものを生み出すようなモノづくりは、これからも続けていきたいです。
           </p>
         </PostBody>
+        <Contact />
       </Container>
     </>
   );
