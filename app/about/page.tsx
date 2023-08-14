@@ -3,6 +3,8 @@ import Hero from "../components/Hero";
 import Container from "../components/Container";
 import PostBody from "../components/PostBody";
 import Contact from "../components/Contact";
+import Image from "next/image";
+import eyecatch from "../images/about.jpg";
 import {
   TwoColumn,
   TwoColumnMain,
@@ -14,6 +16,16 @@ const About = () => {
     <>
       <Container>
         <Hero title={"About"} subTitle={"About development activities"} />
+        <figure>
+          <Image
+            src={eyecatch}
+            alt=""
+            layout="responsive"
+            sizes="(min-width: 1152px) 1152px, 100vw"
+            priority
+            placeholder="blur"
+          />
+        </figure>
         <TwoColumn>
           <TwoColumnMain>
             <PostBody>
