@@ -3,7 +3,6 @@ import parse from "html-react-parser";
 import Image from "next/image";
 import { Element } from "html-react-parser";
 
-
 const ConvertBody = ({ contentHTML }: { contentHTML: string }) => {
   const contentReact = parse(contentHTML, {
     replace: (node) => {
@@ -17,8 +16,8 @@ const ConvertBody = ({ contentHTML }: { contentHTML: string }) => {
             src={src}
             alt={alt}
             layout="responsive"
-            width={parseInt(width)}  {/* width を数値に変換 */}
-            height={parseInt(height)}  {/* height を数値に変換 */}
+            width={parseInt(width)}
+            height={parseInt(height)}
             sizes="(min-width:768px) 768px , 100vw"
           ></Image>
         );

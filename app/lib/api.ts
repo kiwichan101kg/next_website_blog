@@ -21,3 +21,29 @@ export const getPostBySlug = async (slug: string) => {
     console.log(err);
   }
 };
+
+export const getAllSlugs = async (limit = 100) => {
+  try {
+    const slugs = await client.get({
+      endpoint: "blogs",
+      queries: { fields: "title,slug", orders: "-publishDate", limit },
+    });
+    return slugs.contents;
+  } catch (err) {
+    console.log("ERROR:getAllSlugs");
+    console.log(err);
+  }
+};
+
+export const getAllPosts = async (limit = 100) => {
+  try {
+    const slugs = await client.get({
+      endpoint: "blogs",
+      queries: { fields: "title,slug,eyecatch", orders: "-publishDate", limit },
+    });
+    return slugs.contents;
+  } catch (err) {
+    console.log("ERROR:getAllPosts");
+    console.log(err);
+  }
+};
