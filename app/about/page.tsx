@@ -11,6 +11,7 @@ import {
   TwoColumnSidebar,
 } from "../components/TwoColumn";
 import { Metadata } from "next";
+import { getPostBySlug } from "../lib/api";
 
 export const metadata: Metadata = {
   title: "アバウト",
@@ -20,7 +21,10 @@ export const metadata: Metadata = {
   },
 };
 
-const About = () => {
+const About = async () => {
+  const contents = await getPostBySlug("schedule");
+  console.log(contents);
+
   return (
     <>
       <Container>
