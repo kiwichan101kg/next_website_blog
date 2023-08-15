@@ -1,0 +1,6 @@
+.list {
+  display: flex;
+  /* justify-content: flex-end; コンテンツを右寄せに */
+  gap: 1.5rem;
+  font-size: var(--icon-size, 24px);
+}
