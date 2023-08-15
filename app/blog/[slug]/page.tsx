@@ -10,13 +10,16 @@ import {
   TwoColumnSidebar,
 } from "@/app/components/TwoColumn";
 import ConvertBody from "./COnvertBody";
+import PostCategories from "./PostCategories";
+import { eyecatchLocal } from "@/app/lib/constants";
 
 // urlのidはpropsのparamsに含まれる
 type Props = { params: { slug: string } };
 
 const page = async ({ params: { slug } }: Props) => {
   const post = await getPostBySlug(slug);
-  const { title, publishDate, eyecatch, content } = post;
+  const { title, publishDate, eyecatch: _eyecatch, content, categories } = post;
+  const eyecatch = _eyecatch ?? eyecatchLocal;
   console.log("ブログ", post);
 
   const postHeaderProps: PostHeaderProps = {
@@ -45,7 +48,9 @@ const page = async ({ params: { slug } }: Props) => {
               <ConvertBody contentHTML={content} />
             </PostBody>
           </TwoColumnMain>
-          <TwoColumnSidebar>カテゴリ</TwoColumnSidebar>
+          <TwoColumnSidebar>
+            <PostCategories categories={categories} />
+          </TwoColumnSidebar>
         </TwoColumn>
       </article>
     </Container>

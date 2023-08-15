@@ -1,8 +1,8 @@
 import React from "react";
 import parse from "html-react-parser";
 import Image from "next/image";
-import { HTMLReactParserOptions, Element } from "html-react-parser";
-import PostBody from "@/app/components/PostBody";
+import { Element } from "html-react-parser";
+
 
 const ConvertBody = ({ contentHTML }: { contentHTML: string }) => {
   const contentReact = parse(contentHTML, {
