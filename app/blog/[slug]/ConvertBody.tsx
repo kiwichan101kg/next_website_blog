@@ -1,0 +1,31 @@
+import React from "react";
+import parse from "html-react-parser";
+import Image from "next/image";
+import { HTMLReactParserOptions, Element } from "html-react-parser";
+import PostBody from "@/app/components/PostBody";
+
+const ConvertBody = ({ contentHTML }: { contentHTML: string }) => {
+  const contentReact = parse(contentHTML, {
+    replace: (node) => {
+      if (!(node instanceof Element && node.attribs)) {
+        return;
+      }
+      if (node.name === "img") {
+        const { src, alt, width, height } = node.attribs;
+        return (
+          <Image
+            src={src}
+            alt={alt}
+            layout="responsive"
+            width={parseInt(width)}  {/* width を数値に変換 */}
+            height={parseInt(height)}  {/* height を数値に変換 */}
+            sizes="(min-width:768px) 768px , 100vw"
+          ></Image>
+        );
+      }
+    },
+  });
+  return <>{contentReact}</>;
+};
+
+export default ConvertBody;
