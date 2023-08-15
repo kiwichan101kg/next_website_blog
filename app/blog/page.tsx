@@ -1,8 +1,11 @@
 import React from "react";
 import Hero from "../components/Hero";
 import Container from "../components/Container";
+import { getPostBySlug } from "../lib/api";
 
-const Blog = () => {
+const Blog = async () => {
+  const contents = await getPostBySlug("schedule");
+  console.log("blog", contents);
   return (
     <>
       <Container>
