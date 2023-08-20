@@ -7,7 +7,7 @@ import ConvertDate from "./ConvertDate";
 export type PostHeaderProps = {
   title: string;
   subtitle: string;
-  publish: string;
+  publish?: string;
 };
 
 const PostHeader = ({ title, subtitle, publish = "" }: PostHeaderProps) => {

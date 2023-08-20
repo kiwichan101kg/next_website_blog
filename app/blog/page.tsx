@@ -6,7 +6,8 @@ import Post, { PostType } from "./Post";
 import { eyecatchLocal } from "../lib/constants";
 
 const Blog = async () => {
-  const allPosts: PostType[] = await getAllPosts();
+  const allPosts: PostType[] | undefined = await getAllPosts();
+  if (!allPosts) return;
 
   return (
     <>

@@ -20,17 +20,17 @@ const Post = ({ posts }: { posts: PostType[] }) => {
   return (
     <div className={styles.gridContainer}>
       {posts.map(({ title, slug, eyecatch }) => (
-        <article>
+        <article className={styles.post}>
           <Link href={`/blog/${slug}`}>
             <figure>
               <Image
-                layout="responsive"
-                // objectFit="cover"
+                layout="fill"
+                objectFit="cover"
                 sizes="(min-width:1152px)567px,50vw"
                 src={eyecatch.url}
                 alt={""}
-                width={eyecatch.width}
-                height={eyecatch.height}
+                // width={eyecatch.width}
+                // height={eyecatch.height}
               />
             </figure>
             <h2>{title}</h2>

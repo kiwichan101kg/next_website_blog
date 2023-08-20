@@ -6,7 +6,8 @@ import { getAllPosts } from "./lib/api";
 import Pagenation from "./blog/[slug]/Pagenation";
 
 export default async function Home() {
-  const postsForHome: PostType[] = await getAllPosts(4);
+  const postsForHome: PostType[] | undefined = await getAllPosts(4);
+  if (!postsForHome) return;
   console.log("Home", postsForHome);
   return (
     <>

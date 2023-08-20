@@ -6,7 +6,7 @@ import { faFolderOpen } from "@fortawesome/free-regular-svg-icons";
 
 type Category = {
   id: string;
-  createAt: string;
+  createdAt: string;
   updatedAt: string;
   publishedAt: string;
   revisedAt: string;

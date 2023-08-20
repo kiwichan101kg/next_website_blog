@@ -13,22 +13,20 @@ import ConvertBody from "./ConvertBody";
 import PostCategories from "./PostCategories";
 import { eyecatchLocal } from "@/app/lib/constants";
 import Pagenation from "./Pagenation";
+import { PostDetail, TitleList } from "@/app/lib/types";
 
 // urlのidはpropsのparamsに含まれる
 type Props = { params: { slug: string } };
 
-type SlugType = {
-  title: string;
-  slug: string;
-};
-
 const page = async ({ params: { slug } }: Props) => {
-  const post = await getPostBySlug(slug);
+  const post: PostDetail | undefined = await getPostBySlug(slug);
+  if (!post) return;
   const { title, publishDate, eyecatch: _eyecatch, content, categories } = post;
   const eyecatch = _eyecatch ?? eyecatchLocal;
 
   // 記事一覧を取得し、前後の記事のタイトルをurlを取得する
-  const allSlugs = await getAllPosts();
+  const allSlugs: TitleList[] | undefined = await getAllPosts();
+  if (!allSlugs) return;
   const [prevPost, nextPost] = prevNextPost(allSlugs, slug);
 
   const postHeaderProps: PostHeaderProps = {
@@ -73,7 +71,10 @@ const page = async ({ params: { slug } }: Props) => {
 };
 
 // 記事一覧と現在の記事情報から、前後の記事のタイトルとurlを取得する関数
-const prevNextPost = (allSlugs: SlugType[], currentSlug: SlugType["slug"]) => {
+const prevNextPost = (
+  allSlugs: TitleList[],
+  currentSlug: TitleList["slug"]
+) => {
   const numberOfPosts = allSlugs.length;
 
   // 取得したslug配列の中から、現在のslugと一致するものの配列のindexを返却する
