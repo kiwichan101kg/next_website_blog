@@ -9,6 +9,7 @@ export const client = createClient({
   apiKey: process.env.API_KEY,
 });
 
+// 記事の詳細を取得する
 export const getPostBySlug = async (slug: string) => {
   try {
     const post = await client.get({
@@ -22,19 +23,7 @@ export const getPostBySlug = async (slug: string) => {
   }
 };
 
-export const getAllSlugs = async (limit = 100) => {
-  try {
-    const slugs = await client.get({
-      endpoint: "blogs",
-      queries: { fields: "title,slug", orders: "-publishDate", limit },
-    });
-    return slugs.contents;
-  } catch (err) {
-    console.log("ERROR:getAllSlugs");
-    console.log(err);
-  }
-};
-
+// 記事一覧を取得する
 export const getAllPosts = async (limit = 100) => {
   try {
     const slugs = await client.get({

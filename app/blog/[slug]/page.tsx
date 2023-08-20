@@ -1,5 +1,5 @@
 import Container from "@/app/components/Container";
-import { getAllSlugs, getPostBySlug } from "@/app/lib/api";
+import { getAllPosts, getPostBySlug } from "@/app/lib/api";
 import React from "react";
 import PostHeader, { PostHeaderProps } from "./PostHeader";
 import Image from "next/image";
@@ -27,7 +27,8 @@ const page = async ({ params: { slug } }: Props) => {
   const { title, publishDate, eyecatch: _eyecatch, content, categories } = post;
   const eyecatch = _eyecatch ?? eyecatchLocal;
 
-  const allSlugs = await getAllSlugs();
+  // 記事一覧を取得し、前後の記事のタイトルをurlを取得する
+  const allSlugs = await getAllPosts();
   const [prevPost, nextPost] = prevNextPost(allSlugs, slug);
 
   const postHeaderProps: PostHeaderProps = {
@@ -71,13 +72,9 @@ const page = async ({ params: { slug } }: Props) => {
   );
 };
 
-export const prevNextPost = (
-  allSlugs: SlugType[],
-  currentSlug: SlugType["slug"]
-) => {
+// 記事一覧と現在の記事情報から、前後の記事のタイトルとurlを取得する関数
+const prevNextPost = (allSlugs: SlugType[], currentSlug: SlugType["slug"]) => {
   const numberOfPosts = allSlugs.length;
-  // console.log("slugの数", numberOfPosts);
-  console.log(allSlugs);
 
   // 取得したslug配列の中から、現在のslugと一致するものの配列のindexを返却する
   const index = allSlugs.findIndex(({ slug }) => slug === currentSlug);

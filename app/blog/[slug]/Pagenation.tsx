@@ -8,10 +8,10 @@ import React from "react";
 import styles from "../styles/pagenation.module.css";
 
 type prevNextPost = {
-  prevText: string;
-  prevUrl: string;
-  nextText: string;
-  nextUrl: string;
+  prevText?: string;
+  prevUrl?: string;
+  nextText?: string;
+  nextUrl?: string;
 };
 
 const Pagenation = ({ prevText, prevUrl, nextText, nextUrl }: prevNextPost) => {
