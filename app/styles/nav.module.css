@@ -1,6 +1,95 @@
-.list {
-  display: flex;
-  gap: 2rem;
+@media (min-width: 768px) {
+  .btn {
+    display: none;
+  }
+
+  .list {
+    display: flex;
+    gap: 2rem;
+  }
+}
+
+/* モバイル */
+@media (max-width: 768px) {
+  .btn {
+    /* 要素のプロパティを初期値に変更する*/
+    all: unset;
+    /* outline: revert;
+    -webkit-tap-highlight-color: transparent; */
+    cursor: pointer;
+    width: 42px;
+    height: 42px;
+    position: relative;
+    /*オーバーレイより上に配置*/
+    z-index: 200;
+  }
+
+  /*ボタン内のバー*/
+  .btn {
+    display: grid;
+    place-items: center;
+  }
+
+  .btn::before,
+  .btn::after,
+  .btn .bar {
+    grid-area: 1/1;
+    content: "";
+    display: block;
+    width: 32px;
+    height: 1px;
+    background-color: currentColor;
+    transition-duration: 0.4s;
+  }
+
+  .close .btn::before {
+    transform: translateY(-8px);
+  }
+  .close .btn::after {
+    transform: translateY(8px);
+  }
+  .open .btn::before {
+    transform: rotate(45deg);
+  }
+  .open .btn::after {
+    transform: rotate(-45deg);
+  }
+  .open .btn .bar {
+    transform: scale(0);
+  }
+
+  .close .btn {
+    color: var(--gray-75);
+  }
+
+  .open .btn {
+    color: var(--white);
+  }
+
+  .list {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--white);
+    /* 右画面外へ設定*/
+    inset: 0 -100% 0 100%;
+    z-index: 100;
+    /* transition: transform 0.4s; */
+    /*変化している間の時間*/
+    transition-duration: 0.4s;
+  }
+
+  .open .list {
+    /*横移動*/
+    transform: translateX(-100%);
+  }
+
+  /* メニュー (オーバーレイ内の配置) */
+  .list {
+    display: grid;
+    gap: 40px;
+    place-content: center;
+    text-align: center;
+  }
 }
 
 .list a:hover {
